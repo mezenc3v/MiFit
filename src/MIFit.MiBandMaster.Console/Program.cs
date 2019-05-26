@@ -37,11 +37,52 @@ namespace MIFit.MiBandMaster.Console
 		private static void Import(string filename, string connectionstring, MeasurementType type)
 		{
 			var loader = new Loader();
-			var data = loader.LoadBodyMeasurements(filename).ToList();
-			var repository = new BodyRepository(connectionstring);
-			foreach (var miFitBodyMeasurement in data)
+			switch (type)
 			{
-				repository.Add(miFitBodyMeasurement);
+				case MeasurementType.Body:
+					var bodyData = loader.LoadBodyMeasurements(filename).ToList();
+					var br = new BodyRepository(connectionstring);
+					foreach (var measurement in bodyData)
+					{
+						br.Add(measurement);
+					}
+					break;
+				case MeasurementType.Activity:
+					var activityData = loader.LoadActivityMeasurements(filename).ToList();
+					var ar = new ActivityRepository(connectionstring);
+					foreach (var measurement in activityData)
+					{
+						ar.Add(measurement);
+					}
+					break;
+				case MeasurementType.HeartRate:
+					var heartrateData = loader.LoadHeartrateMeasurements(filename).ToList();
+					var hr = new HeartrateRepository(connectionstring);
+					foreach (var measurement in heartrateData)
+					{
+						hr.Add(measurement);
+					}
+					break;
+				case MeasurementType.Sleep:
+					var sleepData = loader.LoadSleepMeasurements(filename).ToList();
+					var slr = new SleepRepository(connectionstring);
+					foreach (var measurement in sleepData)
+					{
+						slr.Add(measurement);
+					}
+					break;
+				case MeasurementType.User:
+					var userData = loader.LoadUserMeasurements(filename).ToList();
+					var ur = new UserRepository(connectionstring);
+					foreach (var measurement in userData)
+					{
+						ur.Add(measurement);
+					}
+					break;
+				case MeasurementType.Sport:
+					throw new NotImplementedException(nameof(type));
+				default:
+					throw new ArgumentOutOfRangeException(nameof(type), type, null);
 			}
 		}
 
