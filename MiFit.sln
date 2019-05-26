@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28902.138
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiFit.Data", "src\MiFit.Data\MiFit.Data.csproj", "{92BFA3B3-644D-4CF9-87A5-F0CD521129FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiFit.Data.MiBandMaster", "src\MiFit.Data.MiBandMaster\MiFit.Data.MiBandMaster.csproj", "{42A68DE1-5AC4-49C9-8FC8-72CAC54900C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiFit.Model", "src\MiFit.Model\MiFit.Model.csproj", "{45728D52-FFFE-43E4-B72F-D4837808A42E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MiBandMaster", "MiBandMaster", "{6E4CF4DA-59BB-44BD-8190-0CF62F31AD83}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MIFit.MiBandMaster.Console", "src\MIFit.MiBandMaster.Console\MIFit.MiBandMaster.Console.csproj", "{053A5457-D970-4DDF-84CC-AE72A3D520DC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiFit.Loader", "src\MiFit.Loader\MiFit.Loader.csproj", "{B0BF8A33-1605-41CD-822D-DF0045CB3069}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiFit.Loader.Csv", "src\MiFit.Loader.Csv\MiFit.Loader.Csv.csproj", "{BAAC5F57-26BD-4405-87CF-5B9324322EDE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{92BFA3B3-644D-4CF9-87A5-F0CD521129FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92BFA3B3-644D-4CF9-87A5-F0CD521129FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92BFA3B3-644D-4CF9-87A5-F0CD521129FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92BFA3B3-644D-4CF9-87A5-F0CD521129FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42A68DE1-5AC4-49C9-8FC8-72CAC54900C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42A68DE1-5AC4-49C9-8FC8-72CAC54900C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42A68DE1-5AC4-49C9-8FC8-72CAC54900C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42A68DE1-5AC4-49C9-8FC8-72CAC54900C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45728D52-FFFE-43E4-B72F-D4837808A42E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45728D52-FFFE-43E4-B72F-D4837808A42E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45728D52-FFFE-43E4-B72F-D4837808A42E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45728D52-FFFE-43E4-B72F-D4837808A42E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{053A5457-D970-4DDF-84CC-AE72A3D520DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{053A5457-D970-4DDF-84CC-AE72A3D520DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{053A5457-D970-4DDF-84CC-AE72A3D520DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{053A5457-D970-4DDF-84CC-AE72A3D520DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0BF8A33-1605-41CD-822D-DF0045CB3069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0BF8A33-1605-41CD-822D-DF0045CB3069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0BF8A33-1605-41CD-822D-DF0045CB3069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0BF8A33-1605-41CD-822D-DF0045CB3069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAAC5F57-26BD-4405-87CF-5B9324322EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAAC5F57-26BD-4405-87CF-5B9324322EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAAC5F57-26BD-4405-87CF-5B9324322EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAAC5F57-26BD-4405-87CF-5B9324322EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{42A68DE1-5AC4-49C9-8FC8-72CAC54900C8} = {6E4CF4DA-59BB-44BD-8190-0CF62F31AD83}
+		{053A5457-D970-4DDF-84CC-AE72A3D520DC} = {6E4CF4DA-59BB-44BD-8190-0CF62F31AD83}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6581648F-6702-4A4F-921D-248192B7DC38}
+	EndGlobalSection
+EndGlobal
