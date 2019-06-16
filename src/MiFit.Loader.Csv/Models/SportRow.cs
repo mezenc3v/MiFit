@@ -1,4 +1,4 @@
-﻿using MiFit.Model;
+﻿using MiFit.Data.Models;
 
 namespace MiFit.Loader.Csv.Models
 {

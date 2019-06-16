@@ -2,38 +2,38 @@
 using System.IO;
 using System.Text;
 using MiFit.Loader.Csv.Models;
-using MiFit.Model;
+using MiFit.Data.Models;
 
 namespace MiFit.Loader.Csv
 {
-	public class Loader : ILoader
+	public class Loader
 	{
-		public IEnumerable<IBody> LoadBodyMeasurements(string fileName)
+		public IEnumerable<IBody> LoadBody(string fileName)
 		{
 			return ReadFile<BodyRow>(fileName);
 		}
 
-		public IEnumerable<IActivity> LoadActivityMeasurements(string fileName)
+		public IEnumerable<IActivity> LoadActivity(string fileName)
 		{
 			return ReadFile<ActivityRow>(fileName);
 		}
 
-		public IEnumerable<IHeartrate> LoadHeartrateMeasurements(string fileName)
+		public IEnumerable<IHeartrate> LoadHeartrate(string fileName)
 		{
 			return ReadFile<HeartrateRow>(fileName);
 		}
 
-		public IEnumerable<ISleep> LoadSleepMeasurements(string fileName)
+		public IEnumerable<ISleep> LoadSleep(string fileName)
 		{
 			return ReadFile<SleepRow>(fileName);
 		}
 
-		public IEnumerable<ISport> LoadSportMeasurements(string fileName)
+		public IEnumerable<ISport> LoadSport(string fileName)
 		{
 			return ReadFile<SportRow>(fileName);
 		}
 
-		public IEnumerable<IUser> LoadUserMeasurements(string fileName)
+		public IEnumerable<IUser> LoadUser(string fileName)
 		{
 			return ReadFile<UserRow>(fileName);
 		}

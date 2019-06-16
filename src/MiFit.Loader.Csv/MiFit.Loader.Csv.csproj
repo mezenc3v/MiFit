@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MiFit.Loader\MiFit.Loader.csproj" />
-    <ProjectReference Include="..\MiFit.Model\MiFit.Model.csproj" />
+    <ProjectReference Include="..\MiFit.Data\MiFit.Data.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,5 +1,5 @@
 ﻿using MiFit.Data.MiBandMaster.Models;
-using MiFit.Model;
+using MiFit.Data.Models;
 
 namespace MiFit.Data.MiBandMaster
 {

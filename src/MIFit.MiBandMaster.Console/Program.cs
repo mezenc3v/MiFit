@@ -40,7 +40,7 @@ namespace MIFit.MiBandMaster.Console
 			switch (type)
 			{
 				case MeasurementType.Body:
-					var bodyData = loader.LoadBodyMeasurements(filename).ToList();
+					var bodyData = loader.LoadBody(filename).ToList();
 					var br = new BodyRepository(connectionstring);
 					foreach (var measurement in bodyData)
 					{
@@ -48,7 +48,7 @@ namespace MIFit.MiBandMaster.Console
 					}
 					break;
 				case MeasurementType.Activity:
-					var activityData = loader.LoadActivityMeasurements(filename).ToList();
+					var activityData = loader.LoadActivity(filename).ToList();
 					var ar = new ActivityRepository(connectionstring);
 					foreach (var measurement in activityData)
 					{
@@ -56,7 +56,7 @@ namespace MIFit.MiBandMaster.Console
 					}
 					break;
 				case MeasurementType.HeartRate:
-					var heartrateData = loader.LoadHeartrateMeasurements(filename).ToList();
+					var heartrateData = loader.LoadHeartrate(filename).ToList();
 					var hr = new HeartrateRepository(connectionstring);
 					foreach (var measurement in heartrateData)
 					{
@@ -64,7 +64,7 @@ namespace MIFit.MiBandMaster.Console
 					}
 					break;
 				case MeasurementType.Sleep:
-					var sleepData = loader.LoadSleepMeasurements(filename).ToList();
+					var sleepData = loader.LoadSleep(filename).ToList();
 					var slr = new SleepRepository(connectionstring);
 					foreach (var measurement in sleepData)
 					{
@@ -72,7 +72,7 @@ namespace MIFit.MiBandMaster.Console
 					}
 					break;
 				case MeasurementType.User:
-					var userData = loader.LoadUserMeasurements(filename).ToList();
+					var userData = loader.LoadUser(filename).ToList();
 					var ur = new UserRepository(connectionstring);
 					foreach (var measurement in userData)
 					{
