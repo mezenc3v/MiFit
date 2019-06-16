@@ -23,9 +23,9 @@ namespace Data.EFCore
 			base.OnModelCreating(modelBuilder);
 			modelBuilder.Entity<User>().HasKey(u => u.UserId);
 			modelBuilder.Entity<Activity>().HasKey(u => u.ActivityId);
-			modelBuilder.Entity<Body>().HasKey(u => u.TimeStamp);
-			modelBuilder.Entity<Sleep>().HasKey(u => u.TimeStamp);
-			modelBuilder.Entity<Heartrate>().HasKey(u => u.TimeStamp);
+			modelBuilder.Entity<Body>().HasKey(u => u.BodyId);
+			modelBuilder.Entity<Sleep>().HasKey(u => u.SleepId);
+			modelBuilder.Entity<Heartrate>().HasKey(u => u.HeartrateId);
 		}
 	}
 }

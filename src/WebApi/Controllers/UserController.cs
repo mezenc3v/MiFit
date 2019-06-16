@@ -12,11 +12,11 @@ namespace WebApi.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
-	public class UsersController : ControllerBase
+	public class UserController : ControllerBase
 	{
 		private readonly IUserRepository _repo;
 
-		public UsersController(IUserRepository repo)
+		public UserController(IUserRepository repo)
 		{
 			_repo = repo;
 		}
@@ -49,9 +49,9 @@ namespace WebApi.Controllers
 		}
 
 		[HttpPut("{id}")]
-		public IActionResult Update(string id, [FromBody] User user)
+		public IActionResult UpdateUser(string id, [FromBody] User user)
 		{
-			if (user == null || !string.Equals(user?.UserId, id, StringComparison.OrdinalIgnoreCase))
+			if (user == null || !string.Equals(user.UserId, id, StringComparison.OrdinalIgnoreCase))
 				return BadRequest();
 
 			_repo.Update(user);
