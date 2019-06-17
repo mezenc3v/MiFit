@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Data.Models;
 
 namespace Data
 {
 	public interface ISleepRepository
 	{
-		Sleep Create(Sleep sleep);
-		Sleep Get(string id);
-		bool Delete(string id);
-		Sleep Update(Sleep sleep);
-		IEnumerable<Sleep> GetAll();
+		Task<Sleep> CreateAsync(Sleep sleep);
+		Task<Sleep> GetAsync(int id);
+		Task<bool> DeleteAsync(int id);
+		Task<Sleep> UpdateAsync(Sleep sleep);
+		Task<IEnumerable<Sleep>> GetAllAsync();
 	}
 }

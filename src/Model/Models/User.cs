@@ -4,7 +4,7 @@ namespace Data.Models
 {
 	public class User
 	{
-		public string UserId { get; set; }
+		public int Id { get; set; }
 		public string Gender { get; set; }
 		public string Height { get; set; }
 		public string Weight { get; set; }

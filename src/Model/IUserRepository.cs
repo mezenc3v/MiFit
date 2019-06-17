@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using Data.Models;
 
 namespace Data
 {
 	public interface IUserRepository
 	{
-		User Create(User user);
-		User Get(string id);
-		bool Delete(string id);
-		User Update(User user);
-		IEnumerable<User> GetAll();
+		Task<User> CreateAsync(User user);
+		Task<User> GetAsync(int id);
+		Task<bool> DeleteAsync(int id);
+		Task<User> UpdateAsync(User user);
+		Task<IEnumerable<User>> GetAllAsync();
 	}
 }

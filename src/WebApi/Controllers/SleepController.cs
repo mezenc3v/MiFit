@@ -22,15 +22,15 @@ namespace WebApi.Controllers
 		}
 
 		[HttpGet]
-		public IEnumerable<Sleep> GetAllSleeps()
+		public async Task<IEnumerable<Sleep>> GetAllSleeps()
 		{
-			return _repo.GetAll();
+			return await _repo.GetAllAsync();
 		}
 
 		[HttpGet("{id}", Name = "GetSleep")]
-		public IActionResult GetSleep(string id)
+		public async Task<IActionResult> GetSleep(int id)
 		{
-			Sleep sleep = _repo.Get(id);
+			Sleep sleep = await _repo.GetAsync(id);
 
 			if (sleep == null)
 				return NotFound();
@@ -39,33 +39,39 @@ namespace WebApi.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult CreateSleep([FromBody] Sleep sleep)
+		public async Task<IActionResult> CreateSleep([FromBody] Sleep sleep)
 		{
 			if (sleep == null)
 				return BadRequest();
 
-			Sleep addedSleep = _repo.Create(sleep);
-			return CreatedAtRoute("GetSleep", new { id = addedSleep.SleepId.ToLower() }, sleep);
+			Sleep addedSleep = await _repo.CreateAsync(sleep);
+			return CreatedAtRoute("GetSleep", new { id = addedSleep.Id }, sleep);
 		}
 
 		[HttpPut("{id}")]
-		public IActionResult UpdateSleep(string id, [FromBody] Sleep sleep)
+		public async Task<IActionResult> UpdateSleep(int id, [FromBody] Sleep sleep)
 		{
-			if (sleep == null || !string.Equals(sleep.SleepId, id, StringComparison.OrdinalIgnoreCase))
+			if (sleep == null || sleep.Id != id)
 				return BadRequest();
 
-			_repo.Update(sleep);
+			var existing = await _repo.GetAsync(id);
+			if (existing == null)
+			{
+				return NotFound();
+			}
+
+			await _repo.UpdateAsync(existing);
 			return new NoContentResult();
 		}
 
 		[HttpDelete("{id}")]
-		public IActionResult DeleteSleep(string id)
+		public async Task<IActionResult> DeleteSleep(int id)
 		{
-			var existing = _repo.Get(id);
+			var existing = await _repo.GetAsync(id);
 			if (existing == null)
 				return NotFound();
 
-			bool deleted = _repo.Delete(id);
+			bool deleted = await _repo.DeleteAsync(id);
 			return deleted 
 				? (IActionResult) new NoContentResult() 
 				: BadRequest();

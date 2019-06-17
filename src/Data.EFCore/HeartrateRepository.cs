@@ -1,49 +1,69 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using Data.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace Data.EFCore
 {
 	public class HeartrateRepository : IHeartrateRepository
 	{
 		private readonly ApplicationContext _context;
-
+		private readonly Cache<int, Heartrate> _cache;
 		public HeartrateRepository(ApplicationContext context)
 		{
 			_context = context ?? throw new ArgumentNullException(nameof(context));
+			_cache = new Cache<int, Heartrate>(_context.Heartrates.ToDictionary(u => u.Id));
 		}
 
-		public Heartrate Create(Heartrate heartrate)
+		public async Task<Heartrate> CreateAsync(Heartrate heartrate)
 		{
-			var added = _context.Heartrates.Add(heartrate);
-			return added.Entity;
+			var added = _context.Heartrates.AddAsync(heartrate);
+			int affected = await _context.SaveChangesAsync();
+			return affected == 1
+				? _cache.AddOrUpdate(heartrate.Id, heartrate)
+				: null;
 		}
 
-		public Heartrate Get(string id)
+		public async Task<Heartrate> GetAsync(int id)
 		{
-			return _context.Heartrates.Find(id);
+			return await Task.Run(() =>
+			{
+				_cache.TryGetValue(id, out var h);
+				return h;
+			});
 		}
 
-		public bool Delete(string id)
+		public async Task<bool> DeleteAsync(int id)
 		{
-			var founded = _context.Heartrates.Find(id);
-			_context.Heartrates.Remove(founded);
-			int affected = _context.SaveChanges();
-			return affected == 1;
+			return await Task.Run(() =>
+			{
+				var founded = _context.Heartrates.Find(id);
+				_context.Heartrates.Remove(founded);
+				int affected = _context.SaveChanges();
+				return affected == 1
+					? Task.Run(() => _cache.TryRemove(id, out founded))
+					: null;
+			});
 		}
 
-		public Heartrate Update(Heartrate heartrate)
+		public async Task<Heartrate> UpdateAsync(Heartrate heartrate)
 		{
-			var updated = _context.Heartrates.Update(heartrate);
-			int affected = _context.SaveChanges();
-			return affected == 1 ? updated.Entity : null;
+			return await Task.Run(() =>
+			{
+				var updated = _context.Heartrates.Update(heartrate);
+				int affected = _context.SaveChanges();
+				return affected == 1
+					? Task.Run(() => _cache.UpdateCache(heartrate.Id, heartrate))
+					: null;
+			});
 		}
 
-		public IEnumerable<Heartrate> GetAll()
+		public async Task<IEnumerable<Heartrate>> GetAllAsync()
 		{
-			return _context.Heartrates;
+			return await Task.Run<IEnumerable<Heartrate>>(() => _cache.Values);
 		}
 	}
 }

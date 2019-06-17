@@ -2,7 +2,7 @@
 {
 	public class Activity
 	{
-		public string ActivityId { get; set; }
+		public int Id { get; set; }
 		public string Date { get; set; }
 		public string LastSyncTime { get; set; }
 		public string Steps { get; set; }

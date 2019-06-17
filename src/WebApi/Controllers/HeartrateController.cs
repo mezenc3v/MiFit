@@ -22,15 +22,15 @@ namespace WebApi.Controllers
 		}
 
 		[HttpGet]
-		public IEnumerable<Heartrate> GetAllHeartrates()
+		public async Task<IEnumerable<Heartrate>> GetAllHeartrates()
 		{
-			return _repo.GetAll();
+			return await _repo.GetAllAsync();
 		}
 
 		[HttpGet("{id}", Name = "GetHeartrate")]
-		public IActionResult GetHeartrate(string id)
+		public async Task<IActionResult> GetHeartrate(int id)
 		{
-			Heartrate heartrate = _repo.Get(id);
+			Heartrate heartrate = await _repo.GetAsync(id);
 
 			if (heartrate == null)
 				return NotFound();
@@ -39,33 +39,39 @@ namespace WebApi.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult CreateHeartrate([FromBody] Heartrate heartrate)
+		public async Task<IActionResult> CreateHeartrate([FromBody] Heartrate heartrate)
 		{
 			if (heartrate == null)
 				return BadRequest();
 
-			Heartrate addedHeartrate = _repo.Create(heartrate);
-			return CreatedAtRoute("GetHeartrate", new { id = addedHeartrate.HeartrateId.ToLower() }, heartrate);
+			Heartrate addedHeartrate = await _repo.CreateAsync(heartrate);
+			return CreatedAtRoute("GetHeartrate", new { id = addedHeartrate.Id }, heartrate);
 		}
 
 		[HttpPut("{id}")]
-		public IActionResult UpdateHeartrate(string id, [FromBody] Heartrate heartrate)
+		public async Task<IActionResult> UpdateHeartrate(int id, [FromBody] Heartrate heartrate)
 		{
-			if (heartrate == null || !string.Equals(heartrate.HeartrateId, id, StringComparison.OrdinalIgnoreCase))
+			if (heartrate == null || heartrate.Id != id)
 				return BadRequest();
 
-			_repo.Update(heartrate);
+			var existing = await _repo.GetAsync(id);
+			if (existing == null)
+			{
+				return NotFound();
+			}
+
+			await _repo.UpdateAsync(existing);
 			return new NoContentResult();
 		}
 
 		[HttpDelete("{id}")]
-		public IActionResult DeleteHeartrate(string id)
+		public async Task<IActionResult> DeleteHeartrate(int id)
 		{
-			var existing = _repo.Get(id);
+			var existing = await _repo.GetAsync(id);
 			if (existing == null)
 				return NotFound();
 
-			bool deleted = _repo.Delete(id);
+			bool deleted = await _repo.DeleteAsync(id);
 			return deleted 
 				? (IActionResult) new NoContentResult() 
 				: BadRequest();

@@ -22,15 +22,15 @@ namespace WebApi.Controllers
 		}
 
 		[HttpGet]
-		public IEnumerable<Body> GetAllBodies()
+		public async Task<IEnumerable<Body>> GetAllBodies()
 		{
-			return _repo.GetAll();
+			return await _repo.GetAllAsync();
 		}
 
 		[HttpGet("{id}", Name = "GetBody")]
-		public IActionResult GetBody(string id)
+		public async Task<IActionResult> GetBody(int id)
 		{
-			Body body = _repo.Get(id);
+			Body body = await _repo.GetAsync(id);
 
 			if (body == null)
 				return NotFound();
@@ -39,33 +39,39 @@ namespace WebApi.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult CreateBody([FromBody] Body body)
+		public async Task<IActionResult> CreateBody([FromBody] Body body)
 		{
 			if (body == null)
 				return BadRequest();
 
-			Body addedBody = _repo.Create(body);
-			return CreatedAtRoute("GetBody", new { id = addedBody.BodyId.ToLower() }, body);
+			Body addedBody = await _repo.CreateAsync(body);
+			return CreatedAtRoute("GetBody", new { id = addedBody.Id }, body);
 		}
 
 		[HttpPut("{id}")]
-		public IActionResult UpdateBody(string id, [FromBody] Body body)
+		public async Task<IActionResult> UpdateBody(int id, [FromBody] Body body)
 		{
-			if (body == null || !string.Equals(body.BodyId, id, StringComparison.OrdinalIgnoreCase))
+			if (body == null || body.Id != id)
 				return BadRequest();
 
-			_repo.Update(body);
+			var existing = await _repo.GetAsync(id);
+			if (existing == null)
+			{
+				return NotFound();
+			}
+
+			await _repo.UpdateAsync(existing);
 			return new NoContentResult();
 		}
 
 		[HttpDelete("{id}")]
-		public IActionResult DeleteBody(string id)
+		public async Task<IActionResult> DeleteBody(int id)
 		{
-			var existing = _repo.Get(id);
+			var existing = await _repo.GetAsync(id);
 			if (existing == null)
 				return NotFound();
 
-			bool deleted = _repo.Delete(id);
+			bool deleted = await _repo.DeleteAsync(id);
 			return deleted 
 				? (IActionResult) new NoContentResult() 
 				: BadRequest();

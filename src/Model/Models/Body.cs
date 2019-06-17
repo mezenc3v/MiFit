@@ -2,7 +2,7 @@
 {
 	public class Body
 	{
-		public string BodyId { get; set; }
+		public int Id { get; set; }
 		public string TimeStamp { get; set; }
 		public string Weight { get; set; }
 		public string Height { get; set; }
