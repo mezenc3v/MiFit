@@ -1,8 +1,6 @@
-﻿using MiFit.Data.Models;
-
-namespace MiFit.Loader.Csv.Models
+﻿namespace MiFit.Loader.Csv.Models
 {
-	public class SleepRow : ISleep
+	public class SleepRow
 	{
 		[CsvColumn("date")]
 		public string Date { get; set; }

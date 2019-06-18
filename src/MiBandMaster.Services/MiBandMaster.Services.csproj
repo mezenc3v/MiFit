@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Data.Services\Data.Services.csproj" />
+    <ProjectReference Include="..\MiBandMaster.Data\MiBandMaster.Data.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 

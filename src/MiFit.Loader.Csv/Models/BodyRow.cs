@@ -1,8 +1,7 @@
-﻿using MiFit.Data.Models;
-
+﻿
 namespace MiFit.Loader.Csv.Models
 {
-	public class BodyRow : IBody
+	public partial class BodyRow
 	{
 		[CsvColumn("timestamp")]
 		public string TimeStamp { get; set; }

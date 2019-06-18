@@ -1,8 +1,6 @@
-﻿using MiFit.Data.Models;
-
-namespace MiFit.Loader.Csv.Models
+﻿namespace MiFit.Loader.Csv.Models
 {
-	public class SportRow : ISport
+	public class SportRow
 	{
 		[CsvColumn("type")]
 		public string Type { get; set; }

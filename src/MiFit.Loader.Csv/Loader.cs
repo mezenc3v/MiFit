@@ -1,41 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using MiFit.Loader.Csv.Models;
-using MiFit.Data.Models;
 
 namespace MiFit.Loader.Csv
 {
-	public class Loader
+	public class Loader<TRow> where TRow : new()
 	{
-		public IEnumerable<IBody> LoadBody(string fileName)
+		public IEnumerable<TRow> Load(string fileName)
 		{
-			return ReadFile<BodyRow>(fileName);
-		}
-
-		public IEnumerable<IActivity> LoadActivity(string fileName)
-		{
-			return ReadFile<ActivityRow>(fileName);
-		}
-
-		public IEnumerable<IHeartrate> LoadHeartrate(string fileName)
-		{
-			return ReadFile<HeartrateRow>(fileName);
-		}
-
-		public IEnumerable<ISleep> LoadSleep(string fileName)
-		{
-			return ReadFile<SleepRow>(fileName);
-		}
-
-		public IEnumerable<ISport> LoadSport(string fileName)
-		{
-			return ReadFile<SportRow>(fileName);
-		}
-
-		public IEnumerable<IUser> LoadUser(string fileName)
-		{
-			return ReadFile<UserRow>(fileName);
+			return ReadFile(fileName);
 		}
 
 		private static IList<string> ReadStrings(string fileName, Encoding encoding)
@@ -51,9 +24,8 @@ namespace MiFit.Loader.Csv
 			return list;
 		}
 
-		private static IEnumerable<TRow> ReadFile<TRow>(string fileName) where TRow : new()
+		private static IEnumerable<TRow> ReadFile(string fileName)
 		{
-			
 			var rows = ReadStrings(fileName, Encoding.Unicode);
 			var list = new List<TRow>();
 			var parser = new Parser(rows);

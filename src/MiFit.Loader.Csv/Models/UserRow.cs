@@ -1,8 +1,8 @@
-﻿using MiFit.Data.Models;
+﻿using Data;
 
 namespace MiFit.Loader.Csv.Models
 {
-	public class UserRow : IUser
+	public class UserRow
 	{
 		[CsvColumn("userId")]
 		public string UserId { get; set; }

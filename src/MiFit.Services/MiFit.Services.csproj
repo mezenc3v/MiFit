@@ -5,6 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Data.Services\Data.Services.csproj" />
+    <ProjectReference Include="..\MiFit.Loader.Csv\MiFit.Loader.Csv.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
