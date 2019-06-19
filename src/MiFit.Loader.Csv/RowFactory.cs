@@ -13,22 +13,17 @@ namespace MiFit.Loader.Csv
 		public RowFactory(string[] headers)
 		{
 			_headers = headers;
-			var props = from p in typeof(TRow).GetProperties()
-				let attrs = p.GetCustomAttributes(typeof(CsvColumnAttribute), true)
-				from attr in attrs
-				where attr is CsvColumnAttribute
-				select new { Property = p, Attribute = attr as CsvColumnAttribute };
 
-			foreach (var prop in props)
+			foreach (var prop in typeof(TRow).GetProperties())
 			{
-				int pos = Array.IndexOf(headers, prop.Attribute.Column);
+				int pos = Array.IndexOf(headers, prop.Name);
 				if (pos >= 0)
 				{
-					_map.Add(pos, prop.Property);
+					_map.Add(pos, prop);
 				}
 				else
 				{
-					throw new FormatException($"Invalid header. Missing column '{prop.Attribute.Column}'.");
+					throw new FormatException($"Invalid header. Missing column '{prop}'.");
 				}
 			}
 		}

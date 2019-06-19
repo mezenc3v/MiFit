@@ -17,15 +17,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F5A42207
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi", "src\WebApi\WebApi.csproj", "{C1D092A7-B15C-4B72-A6BA-7CFAFE2EFCAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiFit.Services", "src\MiFit.Services\MiFit.Services.csproj", "{6912F1AD-6A56-4991-AF92-4340D821266D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiFit.Services", "src\MiFit.Services\MiFit.Services.csproj", "{6912F1AD-6A56-4991-AF92-4340D821266D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data.Services", "src\Data.Services\Data.Services.csproj", "{E87DBD7D-EB48-478D-991F-E8D35FB9EBD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiBandMaster.Services", "src\MiBandMaster.Services\MiBandMaster.Services.csproj", "{2C8ABEF9-3DD2-4005-A13F-B49351AB077B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiBandMaster.Services", "src\MiBandMaster.Services\MiBandMaster.Services.csproj", "{2C8ABEF9-3DD2-4005-A13F-B49351AB077B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiBandMaster.Data", "src\MiBandMaster.Data\MiBandMaster.Data.csproj", "{DE952CC2-9EA8-47E5-9345-FBC18D73FA01}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiBandMaster.Loader.SqlLite", "src\MiBandMaster.Loader.SqlLite\MiBandMaster.Loader.SqlLite.csproj", "{93B3B59E-0D1F-420C-81D0-06D014ABF073}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiBandMaster.Loader.SqlLite", "src\MiBandMaster.Loader.SqlLite\MiBandMaster.Loader.SqlLite.csproj", "{93B3B59E-0D1F-420C-81D0-06D014ABF073}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiFit.Data", "src\MiFit.Data\MiFit.Data.csproj", "{741DD4F6-B70B-4C54-B849-B8C009A53DCC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{93B3B59E-0D1F-420C-81D0-06D014ABF073}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93B3B59E-0D1F-420C-81D0-06D014ABF073}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93B3B59E-0D1F-420C-81D0-06D014ABF073}.Release|Any CPU.Build.0 = Release|Any CPU
+		{741DD4F6-B70B-4C54-B849-B8C009A53DCC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{741DD4F6-B70B-4C54-B849-B8C009A53DCC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{741DD4F6-B70B-4C54-B849-B8C009A53DCC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{741DD4F6-B70B-4C54-B849-B8C009A53DCC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{2C8ABEF9-3DD2-4005-A13F-B49351AB077B} = {6E4CF4DA-59BB-44BD-8190-0CF62F31AD83}
 		{DE952CC2-9EA8-47E5-9345-FBC18D73FA01} = {6E4CF4DA-59BB-44BD-8190-0CF62F31AD83}
 		{93B3B59E-0D1F-420C-81D0-06D014ABF073} = {6E4CF4DA-59BB-44BD-8190-0CF62F31AD83}
+		{741DD4F6-B70B-4C54-B849-B8C009A53DCC} = {52C42956-2B87-474A-9FC7-97929D4F6502}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6581648F-6702-4A4F-921D-248192B7DC38}

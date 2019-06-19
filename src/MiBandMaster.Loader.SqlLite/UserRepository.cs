@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using MiBandMaster.Data;
 using MiBandMaster.Data.Models;
 
 namespace MiBandMaster.Loader.SqlLite
 {
-	public class UserRepository
+	public class UserRepository : IUserRepository
 	{
 		private readonly string _connection;
 

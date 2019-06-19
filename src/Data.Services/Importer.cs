@@ -1,40 +1,42 @@
-﻿using Data.Services.Factory;
+﻿using System;
+using System.Collections.Generic;
+using Data.Models;
 
 namespace Data.Services
 {
 	public class Importer
 	{
-		public void Import(IBodyFactory factory, IBodyRepository repo)
+		public void Import(Func<IEnumerable<Body>> func, IBodyRepository repo)
 		{
-			foreach (var body in factory.Create())
+			foreach (var body in func.Invoke())
 			{
 				repo.CreateAsync(body);
 			}
 		}
-		public void Import(IUserFactory factory, IUserRepository repo)
+		public void Import(Func<IEnumerable<User>> func, IUserRepository repo)
 		{
-			foreach (var user in factory.Create())
+			foreach (var user in func.Invoke())
 			{
 				repo.CreateAsync(user);
 			}
 		}
-		public void Import(IActivityFactory factory, IActivityRepository repo)
+		public void Import(Func<IEnumerable<Activity>> func, IActivityRepository repo)
 		{
-			foreach (var activity in factory.Create())
+			foreach (var activity in func.Invoke())
 			{
 				repo.CreateAsync(activity);
 			}
 		}
-		public void Import(ISleepFactory factory, ISleepRepository repo)
+		public void Import(Func<IEnumerable<Sleep>> func, ISleepRepository repo)
 		{
-			foreach (var sleep in factory.Create())
+			foreach (var sleep in func.Invoke())
 			{
 				repo.CreateAsync(sleep);
 			}
 		}
-		public void Import(IHeartrateFactory factory, IHeartrateRepository repo)
+		public void Import(Func<IEnumerable<Heartrate>> func, IHeartrateRepository repo)
 		{
-			foreach (var heartrate in factory.Create())
+			foreach (var heartrate in func.Invoke())
 			{
 				repo.CreateAsync(heartrate);
 			}
