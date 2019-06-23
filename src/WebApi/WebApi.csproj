@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\tests\Data.EFCore.Tests\Data.EFCore.Tests.csproj" />
     <ProjectReference Include="..\Data.EFCore\Data.EFCore.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
