@@ -4,9 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Data;
 using Data.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace WebApi.Controllers
 {

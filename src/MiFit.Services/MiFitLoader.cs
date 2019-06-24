@@ -8,15 +8,15 @@ namespace MiFit.Services
 {
 	public class MiFitLoader
 	{
-        private readonly CsvFiles _files;
-        private static readonly MiFitFactory Factory = new MiFitFactory();
+		private readonly CsvFiles _files;
+		private static readonly MiFitFactory Factory = new MiFitFactory();
 
-        public MiFitLoader(CsvFiles files)
-        {
-            _files = files ?? throw new ArgumentNullException(nameof(files));
-        }
+		public MiFitLoader(CsvFiles files)
+		{
+			_files = files ?? throw new ArgumentNullException(nameof(files));
+		}
 
-        public IEnumerable<User> CreateUsers()
+		public IEnumerable<User> CreateUsers()
 		{
 			var loader = new Loader<Data.Models.User>();
 			return loader.Load(_files.UserPath).Select(Factory.Create);
