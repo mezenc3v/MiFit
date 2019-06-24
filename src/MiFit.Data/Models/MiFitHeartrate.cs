@@ -1,6 +1,6 @@
 ﻿namespace MiFit.Data.Models
 {
-	public class Heartrate
+	public class MiFitHeartrate
 	{
 		public string Date { get; set; }
 		public string LastSyncTime { get; set; }

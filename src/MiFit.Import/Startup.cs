@@ -23,14 +23,14 @@ namespace MiFit.Import
 			var connectionString = Configuration["ConnectionStrings:DefaultConnection"];
 			var files = new CsvFiles
 			{
-				UserPath = Configuration["CsvFiles:User"],
-				ActivityPath = Configuration["CsvFiles:Activity"],
-				SleepPath = Configuration["CsvFiles:Sleep"],
-				HeartratePath = Configuration["CsvFiles:Heartrate"],
-				BodyPath = Configuration["CsvFiles:Body"],
+				UserPath = Configuration["CsvFiles:MiFitUser"],
+				ActivityPath = Configuration["CsvFiles:MiFitActivity"],
+				SleepPath = Configuration["CsvFiles:MiFitSleep"],
+				HeartratePath = Configuration["CsvFiles:MiFitHeartrate"],
+				BodyPath = Configuration["CsvFiles:MiFitBody"],
 			};
-			services.AddSingleton<MiFitLoader>(new MiFitLoader(files));
-			services.AddSingleton<Importer>(new Importer());
+			services.AddSingleton(new MiFitLoader(files));
+			services.AddSingleton(new Importer());
 			services.AddDbContext<ApplicationContext>(options => options.UseSqlite(connectionString));
 			services.AddScoped<IHeartrateRepository, HeartrateRepository>();
 			services.AddScoped<IActivityRepository, ActivityRepository>();

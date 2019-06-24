@@ -4,73 +4,73 @@ namespace MiFit.Services
 {
 	public class MiFitFactory
 	{
-		public User Create(Data.Models.User user)
+		public User Create(Data.Models.MiFitUser miFitUser)
 		{
 			var createdUser = new User
 			{
-				Avatar = user.Avatar,
-				Birthday = user.Birthday,
-				Gender = user.Gender,
-				Height = user.Height,
-				NickName = user.NickName,
-				Weight = user.Weight,
+				Avatar = miFitUser.Avatar,
+				Birthday = miFitUser.Birthday,
+				Gender = miFitUser.Gender,
+				Height = miFitUser.Height,
+				NickName = miFitUser.NickName,
+				Weight = miFitUser.Weight,
 			};
 			return createdUser;
 		}
-		public Activity Create(Data.Models.Activity activity)
+		public Activity Create(Data.Models.MiFitActivity miFitActivity)
 		{
 			var createdActivity = new Activity
 			{
-				Calories = activity.Calories,
-				Date = activity.Date,
-				Distance = activity.Distance,
-				LastSyncTime = activity.LastSyncTime,
-				RunDistance = activity.RunDistance,
-				Steps = activity.Steps,
+				Calories = miFitActivity.Calories,
+				Date = miFitActivity.Date,
+				Distance = miFitActivity.Distance,
+				LastSyncTime = miFitActivity.LastSyncTime,
+				RunDistance = miFitActivity.RunDistance,
+				Steps = miFitActivity.Steps,
 			};
 			return createdActivity;
 		}
-		public Heartrate Create(Data.Models.Heartrate heartrate)
+		public Heartrate Create(Data.Models.MiFitHeartrate miFitHeartrate)
 		{
 			var createdHeartrate = new Heartrate
 			{
-				Date = heartrate.Date,
-				LastSyncTime = heartrate.LastSyncTime,
-				HeartRate = heartrate.HeartRate,
-				TimeStamp = heartrate.TimeStamp,
+				Date = miFitHeartrate.Date,
+				LastSyncTime = miFitHeartrate.LastSyncTime,
+				HeartRate = miFitHeartrate.HeartRate,
+				TimeStamp = miFitHeartrate.TimeStamp,
 			};
 			return createdHeartrate;
 		}
-		public Sleep Create(Data.Models.Sleep sleep)
+		public Sleep Create(Data.Models.MiFitSleep miFitSleep)
 		{
 			var createdSleep = new Sleep
 			{
 				TimeStamp = string.Empty,
-				Date = sleep.Date,
-				DeepSleepTime = sleep.DeepSleepTime,
-				LastSyncTime = sleep.LastSyncTile,
-				ShallowSleepTime = sleep.ShallowSleepTime,
-				Start = sleep.ShallowSleepTime,
-				Stop = sleep.Stop,
-				WakeTime = sleep.WakeTime,
+				Date = miFitSleep.Date,
+				DeepSleepTime = miFitSleep.DeepSleepTime,
+				LastSyncTime = miFitSleep.LastSyncTile,
+				ShallowSleepTime = miFitSleep.ShallowSleepTime,
+				Start = miFitSleep.ShallowSleepTime,
+				Stop = miFitSleep.Stop,
+				WakeTime = miFitSleep.WakeTime,
 			};
 			return createdSleep;
 		}
-		public Body Create(Data.Models.Body body)
+		public Body Create(Data.Models.MiFitBody miFitBody)
 		{
 			var createdBody = new Body
 			{
-				Weight = body.Weight,
-				VisceralFat = body.VisceralFat,
-				Bmi = body.Bmi,
-				BodyWaterRate = body.BodyWaterRate,
-				BoneMass = body.BoneMass,
-				FatRate = body.FatRate,
-				Height = body.Height,
-				Impedance = body.Impedance,
-				Metabolism = body.Metabolism,
-				MuscleRate = body.MuscleRate,
-				TimeStamp = body.TimeStamp,
+				Weight = miFitBody.Weight,
+				VisceralFat = miFitBody.VisceralFat,
+				Bmi = miFitBody.Bmi,
+				BodyWaterRate = miFitBody.BodyWaterRate,
+				BoneMass = miFitBody.BoneMass,
+				FatRate = miFitBody.FatRate,
+				Height = miFitBody.Height,
+				Impedance = miFitBody.Impedance,
+				Metabolism = miFitBody.Metabolism,
+				MuscleRate = miFitBody.MuscleRate,
+				TimeStamp = miFitBody.TimeStamp,
 			};
 			return createdBody;
 		}

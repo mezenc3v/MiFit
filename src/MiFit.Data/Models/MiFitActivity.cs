@@ -1,6 +1,6 @@
 ﻿namespace MiFit.Data.Models
 {
-	public class Activity
+	public class MiFitActivity
 	{
 		public string Date { get; set; }
 		public string LastSyncTime { get; set; }

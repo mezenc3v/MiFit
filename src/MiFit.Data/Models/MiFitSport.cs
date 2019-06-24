@@ -1,6 +1,6 @@
 ﻿namespace MiFit.Data.Models
 {
-	public class Sport
+	public class MiFitSport
 	{
 		public string Type { get; set; }
 		public string StartTile { get; set; }

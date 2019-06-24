@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using MiBandMaster.Data;
 using MiBandMaster.Data.Models;
 
-namespace MiBandMaster.Loader.SqlLite
+namespace MiBandMaster.Data.EFCore
 {
-	public class BodyRepository : IBodyRepository
+	public class MbmSleepRepository : IMbmSleepRepository
 	{
 		private readonly MbmContext _context;
 
-		public BodyRepository(MbmContext context)
+		public MbmSleepRepository(MbmContext context)
 		{
 			_context = context ?? throw new ArgumentNullException(nameof(context));
 		}
 
-		public IEnumerable<MbmBody> GetAll()
+		public IEnumerable<MbmSleep> GetAll()
 		{
-			return _context.Bodies;
+			return _context.Sleeps;
 		}
 	}
 }

@@ -1,6 +1,6 @@
 ﻿namespace MiFit.Data.Models
 {
-	public class Body
+	public class MiFitBody
 	{
 		public string TimeStamp { get; set; }
 		public string Weight { get; set; }

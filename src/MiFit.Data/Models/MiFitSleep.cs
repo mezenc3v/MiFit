@@ -1,6 +1,6 @@
 ﻿namespace MiFit.Data.Models
 {
-	public class Sleep
+	public class MiFitSleep
 	{
 		public string Date { get; set; }
 		public string LastSyncTile { get; set; }

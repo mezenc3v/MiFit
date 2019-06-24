@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using MiBandMaster.Data;
 using MiBandMaster.Data.Models;
 
-namespace MiBandMaster.Loader.SqlLite
+namespace MiBandMaster.Data.EFCore
 {
-	public class SleepRepository : ISleepRepository
+	public class MbmActivityRepository : IMbmActivityRepository
 	{
 		private readonly MbmContext _context;
 
-		public SleepRepository(MbmContext context)
+		public MbmActivityRepository(MbmContext context)
 		{
 			_context = context ?? throw new ArgumentNullException(nameof(context));
 		}
 
-		public IEnumerable<MbmSleep> GetAll()
+		public IEnumerable<MbmActivity> GetAll()
 		{
-			return _context.Sleeps;
+			return _context.Activities;
 		}
 	}
 }

@@ -3,8 +3,8 @@ using MiBandMaster.Data.Models;
 
 namespace MiBandMaster.Data
 {
-	public interface IUserRepository
+	public interface IMbmBodyRepository
 	{
-		IEnumerable<MbmUser> GetAll();
+		IEnumerable<MbmBody> GetAll();
 	}
 }

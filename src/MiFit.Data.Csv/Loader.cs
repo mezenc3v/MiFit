@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace MiFit.Loader.Csv
+namespace MiFit.Data.Csv
 {
 	public class Loader<TRow> where TRow : new()
 	{

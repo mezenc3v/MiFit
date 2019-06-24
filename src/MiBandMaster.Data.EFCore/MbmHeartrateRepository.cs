@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using MiBandMaster.Data;
 using MiBandMaster.Data.Models;
 
-namespace MiBandMaster.Loader.SqlLite
+namespace MiBandMaster.Data.EFCore
 {
-	public class HeartrateRepository : IHeartrateRepository
+	public class MbmHeartrateRepository : IMbmHeartrateRepository
 	{
 		private readonly MbmContext _context;
 
-		public HeartrateRepository(MbmContext context)
+		public MbmHeartrateRepository(MbmContext context)
 		{
 			_context = context ?? throw new ArgumentNullException(nameof(context));
 		}

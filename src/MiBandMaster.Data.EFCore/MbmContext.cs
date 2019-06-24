@@ -1,7 +1,7 @@
 ﻿using MiBandMaster.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MiBandMaster.Loader.SqlLite
+namespace MiBandMaster.Data.EFCore
 {
 	public class MbmContext : DbContext
 	{

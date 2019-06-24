@@ -1,6 +1,6 @@
 ﻿namespace MiFit.Data.Models
 {
-	public class User
+	public class MiFitUser
 	{
 		public string UserId { get; set; }
 		public string Gender { get; set; }

@@ -1,6 +1,6 @@
 ﻿using Data;
 using Data.Services;
-using MiBandMaster.Loader.SqlLite;
+using MiBandMaster.Data.EFCore;
 using MiBandMaster.Services;
 using Microsoft.Extensions.DependencyInjection;
 

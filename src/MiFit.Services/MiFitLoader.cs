@@ -2,48 +2,53 @@
 using System.Collections.Generic;
 using System.Linq;
 using Data.Models;
-using MiFit.Loader.Csv;
+using MiFit.Data;
+using MiFit.Data.Csv;
 
 namespace MiFit.Services
 {
 	public class MiFitLoader
 	{
-		private readonly CsvFiles _files;
+		private readonly IMiFitUserRepository _userRepository;
+		private readonly IMiFitHeartrateRepository _heartrateRepository;
+		private readonly IMiFitSleepRepository _sleepRepository;
+		private readonly IMiFitActivityRepository _activityRepository;
+		private readonly IMiFitBodyRepository _bodyRepository;
 		private static readonly MiFitFactory Factory = new MiFitFactory();
 
 		public MiFitLoader(CsvFiles files)
 		{
-			_files = files ?? throw new ArgumentNullException(nameof(files));
+			if (files == null) throw new ArgumentNullException(nameof(files));
+			_bodyRepository = new MiFitBodyRepository(files.BodyPath);
+			_userRepository = new MiFitUserRepository(files.UserPath);
+			_sleepRepository = new MiFitSleepRepository(files.SleepPath);
+			_activityRepository = new MiFitActivityRepository(files.ActivityPath);
+			_heartrateRepository = new MiFitHeartrateRepository(files.HeartratePath);
 		}
 
 		public IEnumerable<User> CreateUsers()
 		{
-			var loader = new Loader<Data.Models.User>();
-			return loader.Load(_files.UserPath).Select(Factory.Create);
+			return _userRepository.GetAll().Select(Factory.Create);
 		}
 
 		public IEnumerable<Body> CreateBodies()
 		{
-			var loader = new Loader<Data.Models.Body>();
-			return loader.Load(_files.BodyPath).Select(Factory.Create);
+			return _bodyRepository.GetAll().Select(Factory.Create);
 		}
 
 		public IEnumerable<Activity> CreateActivities()
 		{
-			var loader = new Loader<Data.Models.Activity>();
-			return loader.Load(_files.ActivityPath).Select(Factory.Create);
+			return _activityRepository.GetAll().Select(Factory.Create);
 		}
 
 		public IEnumerable<Sleep> CreateSleeps()
 		{
-			var loader = new Loader<Data.Models.Sleep>();
-			return loader.Load(_files.SleepPath).Select(Factory.Create);
+			return _sleepRepository.GetAll().Select(Factory.Create);
 		}
 
 		public IEnumerable<Heartrate> CreateHeartrates()
 		{
-			var loader = new Loader<Data.Models.Heartrate>();
-			return loader.Load(_files.HeartratePath).Select(Factory.Create);
+			return _heartrateRepository.GetAll().Select(Factory.Create);
 		}
 	}
 }

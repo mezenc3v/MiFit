@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 
-namespace MiFit.Loader.Csv
+namespace MiFit.Data.Csv
 {
 	public class RowFactory<TRow> where TRow : new()
 	{

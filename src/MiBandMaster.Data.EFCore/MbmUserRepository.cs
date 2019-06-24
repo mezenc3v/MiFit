@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using MiBandMaster.Data;
 using MiBandMaster.Data.Models;
 
-namespace MiBandMaster.Loader.SqlLite
+namespace MiBandMaster.Data.EFCore
 {
-	public class UserRepository : IUserRepository
+	public class MbmUserRepository : IMbmUserRepository
 	{
 		private readonly MbmContext _context;
 
-		public UserRepository(MbmContext context)
+		public MbmUserRepository(MbmContext context)
 		{
 			_context = context ?? throw new ArgumentNullException(nameof(context));
 		}

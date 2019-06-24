@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MiFit.Loader.Csv
+namespace MiFit.Data.Csv
 {
 	public class Parser
 	{

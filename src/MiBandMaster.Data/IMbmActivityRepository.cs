@@ -3,8 +3,8 @@ using MiBandMaster.Data.Models;
 
 namespace MiBandMaster.Data
 {
-	public interface ISleepRepository
+	public interface IMbmActivityRepository
 	{
-		IEnumerable<MbmSleep> GetAll();
+		IEnumerable<MbmActivity> GetAll();
 	}
 }

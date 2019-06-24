@@ -14,8 +14,8 @@
   <ItemGroup>
     <ProjectReference Include="..\Data.EFCore\Data.EFCore.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\MiBandMaster.Data.EFCore\MiBandMaster.Data.EFCore.csproj" />
     <ProjectReference Include="..\MiBandMaster.Data\MiBandMaster.Data.csproj" />
-    <ProjectReference Include="..\MiBandMaster.Loader.SqlLite\MiBandMaster.Loader.SqlLite.csproj" />
     <ProjectReference Include="..\MiBandMaster.Services\MiBandMaster.Services.csproj" />
   </ItemGroup>
 
