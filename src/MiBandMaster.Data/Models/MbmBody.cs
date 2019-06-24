@@ -2,7 +2,7 @@
 {
 	public class MbmBody
 	{
-		public string TimeStamp { get; set; }
+		public string Time { get; set; }
 		public string Weight { get; set; }
 		public string Bmi { get; set; }
 		public string FatRate { get; set; }

@@ -7,16 +7,16 @@ namespace MiBandMaster.Loader.SqlLite
 {
 	public class UserRepository : IUserRepository
 	{
-		private readonly string _connection;
+		private readonly MbmContext _context;
 
-		public UserRepository(string connection)
+		public UserRepository(MbmContext context)
 		{
-			_connection = connection ?? throw new ArgumentNullException(nameof(connection));
+			_context = context ?? throw new ArgumentNullException(nameof(context));
 		}
 
 		public IEnumerable<MbmUser> GetAll()
 		{
-			throw new NotImplementedException();
+			return _context.Users;
 		}
 	}
 }

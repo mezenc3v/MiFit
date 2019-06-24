@@ -7,16 +7,16 @@ namespace MiBandMaster.Loader.SqlLite
 {
 	public class BodyRepository : IBodyRepository
 	{
-		private readonly string _connection;
+		private readonly MbmContext _context;
 
-		public BodyRepository(string connection)
+		public BodyRepository(MbmContext context)
 		{
-			_connection = connection ?? throw new ArgumentNullException(nameof(connection));
+			_context = context ?? throw new ArgumentNullException(nameof(context));
 		}
 
 		public IEnumerable<MbmBody> GetAll()
 		{
-			throw new NotImplementedException();
+			return _context.Bodies;
 		}
 	}
 }

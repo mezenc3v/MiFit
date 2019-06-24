@@ -7,16 +7,16 @@ namespace MiBandMaster.Loader.SqlLite
 {
 	public class ActivityRepository : IActivityRepository
 	{
-		private readonly string _connection;
+		private readonly MbmContext _context;
 
-		public ActivityRepository(string connection)
+		public ActivityRepository(MbmContext context)
 		{
-			_connection = connection ?? throw new ArgumentNullException(nameof(connection));
+			_context = context ?? throw new ArgumentNullException(nameof(context));
 		}
 
 		public IEnumerable<MbmActivity> GetAll()
 		{
-			throw new NotImplementedException();
+			return _context.Activities;
 		}
 	}
 }

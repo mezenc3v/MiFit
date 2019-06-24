@@ -7,16 +7,16 @@ namespace MiBandMaster.Loader.SqlLite
 {
 	public class HeartrateRepository : IHeartrateRepository
 	{
-		private readonly string _connection;
+		private readonly MbmContext _context;
 
-		public HeartrateRepository(string connection)
+		public HeartrateRepository(MbmContext context)
 		{
-			_connection = connection ?? throw new ArgumentNullException(nameof(connection));
+			_context = context ?? throw new ArgumentNullException(nameof(context));
 		}
 
 		public IEnumerable<MbmHeartrate> GetAll()
 		{
-			throw new NotImplementedException();
+			return _context.Heartrates;
 		}
 	}
 }

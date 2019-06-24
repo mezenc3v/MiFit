@@ -8,6 +8,7 @@
     <ProjectReference Include="..\Data.Services\Data.Services.csproj" />
     <ProjectReference Include="..\MiBandMaster.Data\MiBandMaster.Data.csproj" />
     <ProjectReference Include="..\Data\Data.csproj" />
+    <ProjectReference Include="..\MiBandMaster.Loader.SqlLite\MiBandMaster.Loader.SqlLite.csproj" />
   </ItemGroup>
 
 </Project>

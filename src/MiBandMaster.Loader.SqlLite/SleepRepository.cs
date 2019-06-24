@@ -7,16 +7,16 @@ namespace MiBandMaster.Loader.SqlLite
 {
 	public class SleepRepository : ISleepRepository
 	{
-		private readonly string _connection;
+		private readonly MbmContext _context;
 
-		public SleepRepository(string connection)
+		public SleepRepository(MbmContext context)
 		{
-			_connection = connection ?? throw new ArgumentNullException(nameof(connection));
+			_context = context ?? throw new ArgumentNullException(nameof(context));
 		}
 
 		public IEnumerable<MbmSleep> GetAll()
 		{
-			throw new NotImplementedException();
+			return _context.Sleeps;
 		}
 	}
 }

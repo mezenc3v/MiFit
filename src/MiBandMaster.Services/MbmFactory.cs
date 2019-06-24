@@ -71,7 +71,7 @@ namespace MiBandMaster.Services
 				VisceralFat = body.VisceralFat,
 				Metabolism = body.Bmr,
 				MuscleRate = body.MuscleRate,
-				TimeStamp = body.TimeStamp,
+				TimeStamp = body.Time,
 			};
 			return createdBody;
 		}
